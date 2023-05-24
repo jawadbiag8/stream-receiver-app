@@ -10,7 +10,7 @@ export class AppComponent {
   @ViewChild('receivedVideo') receivedVideo!: ElementRef<HTMLVideoElement>;
   private mediaSource!: MediaSource;
   private sourceBuffer!: SourceBuffer;
-  private targetClientId = 'mOAF7qq7G9tShXxWAAAJ'; // Replace with the desired client ID
+  private targetClientId = 'Qq9VwC2cCayeTu9ZAAAF'; // Replace with the desired client ID
   dataVariable: any;
   id: any;
 
@@ -39,12 +39,13 @@ export class AppComponent {
   ngOnInit() {
     const socket = io('http://localhost:3080'); // Replace with your Socket.io server URL
 
-    socket.on('vtr1kWvXMbzqVQ-EAAAJ', (data: any, id: string) => {
+    socket.on('faheem', (data: any, id: string) => {
       // 'dataUpdate' is the event name emitted by the server
       // 'data' is the received data from the server
-      console.log('Received data:', data);
+     
+      console.log('Received data:',  'data:image/jpeg;base64,'+data);
       // Update your Angular component's properties with the received data
-      this.dataVariable = data;
+      this.dataVariable =  'data:image/jpeg;base64,'+data;
       this.id = id
     });
   }
